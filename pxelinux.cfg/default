@@ -1,0 +1,20 @@
+DEFAULT vesamenu.c32
+MENU BACKGROUND centos.png
+MENU COLOR BORDER 0 #ffffffff #00000000 std
+MENU COLOR TITLE 0 #ffffffff #00000000 std
+MENU COLOR SEL 0 #ffffffff #ff000000 std
+MENU TITLE PXE Boot Menu
+PROMPT 0
+TIMEOUT 100
+ONTIMEOUT centos7desk
+
+#CentOS7Desk
+LABEL centos7desk
+MENU LABEL Install CentOS 7 Desktop
+KERNEL CentOS.7/isolinux/vmlinuz
+APPEND initrd=CentOS.7/isolinux/initrd.img ip=dhcp ksdevice= network ks=ftp://192.168.3.112/pub/kickstart/kickstart.CentOS.7.desk.cfg
+
+#Local Boot
+LABEL local
+MENU LABEL Local HDD
+LOCALBOOT 0
